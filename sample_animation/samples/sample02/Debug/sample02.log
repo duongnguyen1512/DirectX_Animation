@@ -1,0 +1,24 @@
+﻿Build started 03/08/2017 13:11:16.
+     1>Project "G:\NM_Game\training\sample\sample_code\samples2\samples\sample02\sample02.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ball.cpp balls.cpp game.cpp main.cpp
+         main.cpp
+         game.cpp
+         balls.cpp
+     1>g:\nm_game\training\sample\sample_code\samples2\samples\sample02\balls.cpp(56): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>g:\nm_game\training\sample\sample_code\samples2\samples\sample02\balls.cpp(57): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>g:\nm_game\training\sample\sample_code\samples2\samples\sample02\balls.cpp(59): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         ball.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"G:\NM_Game\training\sample\sample_code\samples2\samples\Debug\sample02.exe" /INCREMENTAL /NOLOGO d3d9.lib d3dx9.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"G:\NM_Game\training\sample\sample_code\samples2\samples\Debug\sample02.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"G:\NM_Game\training\sample\sample_code\samples2\samples\Debug\sample02.lib" /MACHINE:X86 /SAFESEH Debug\ball.obj
+         Debug\balls.obj
+         Debug\game.obj
+         Debug\main.obj
+     1>ball.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+         sample02.vcxproj -> G:\NM_Game\training\sample\sample_code\samples2\samples\Debug\sample02.exe
+     1>Done Building Project "G:\NM_Game\training\sample\sample_code\samples2\samples\sample02\sample02.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.62
