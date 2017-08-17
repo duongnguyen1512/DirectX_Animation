@@ -69,12 +69,12 @@ void Animation::Render(VideoDriver *video, GTexture *texture)
 {
 	RECT srect;
 
-	srect.left = (this->_Index % _SpritePerRow)*(texture->FrameWidth) + 1;
-	srect.top = (this->_Index / _SpritePerRow)*(texture->FrameHeight) + 1;
+	srect.left = (this->_Index % _SpritePerRow)*(texture->FrameWidth);
+	srect.top = (this->_Index / _SpritePerRow)*(texture->FrameHeight);
 	srect.right = srect.left + texture->FrameWidth;
-	srect.bottom = srect.top + texture->FrameHeight + 1;
+	srect.bottom = srect.top + texture->FrameHeight;
 
-	video->DrawSprite(this->x, GROUND_Y, texture, srect);
+	video->DrawSprite(this->x, this->y, texture, srect);
 }
 
 void Animation::Next()
@@ -95,4 +95,9 @@ void Animation::Render_Object_Left(VideoDriver *video)
 void Animation::Render_Object_Right(VideoDriver *video)
 {
 	this->Render(video, this->kitty_right);
+}
+
+RECT Animation::BoundingBox()
+{
+	return GameObject::BoundingBox(this->kitty_left);
 }

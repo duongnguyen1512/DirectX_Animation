@@ -16,3 +16,12 @@ ColoredRect::ColoredRect(float x, float y, float width, float height, int r, int
 	this->b = b;
 	this->g = g;
 }
+
+RECT ColoredRect::BoundingBox()
+{
+	GTexture *t = new GTexture();
+	t->FrameHeight = this->height;
+	t->FrameWidth = this->width;
+
+	return GameObject::BoundingBox(t);
+}

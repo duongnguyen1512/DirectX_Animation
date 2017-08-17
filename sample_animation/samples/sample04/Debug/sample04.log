@@ -1,31 +1,23 @@
-﻿Build started 16/08/2017 11:51:18.
-     1>Project "C:\Users\DuongNguyen\Desktop\Game-Direct-X-21d3663a296920418e8b26303480d3c38cb4b326\sample_animation\samples\sample04\sample04.vcxproj" on node 2 (Build target(s)).
+﻿Build started 17/08/2017 17:39:21.
+     1>Project "G:\GitHub\DirectX_Animation\sample_animation\samples\sample04\sample04.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Animation.cpp ColoredRect.cpp GameObject.cpp GTexture.cpp main.cpp Sprite.cpp VideoDriver.cpp
-         VideoDriver.cpp
-     1>c:\users\duongnguyen\desktop\game-direct-x-21d3663a296920418e8b26303480d3c38cb4b326\sample_animation\samples\sample04\videodriver.cpp(21): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>c:\users\duongnguyen\desktop\game-direct-x-21d3663a296920418e8b26303480d3c38cb4b326\sample_animation\samples\sample04\videodriver.cpp(22): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>c:\users\duongnguyen\desktop\game-direct-x-21d3663a296920418e8b26303480d3c38cb4b326\sample_animation\samples\sample04\videodriver.cpp(23): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-     1>c:\users\duongnguyen\desktop\game-direct-x-21d3663a296920418e8b26303480d3c38cb4b326\sample_animation\samples\sample04\videodriver.cpp(24): warning C4244: '=' : conversion from 'float' to 'LONG', possible loss of data
-         Sprite.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
-         GTexture.cpp
-         GameObject.cpp
-         ColoredRect.cpp
-         Animation.cpp
-         Generating Code...
+     1>g:\github\directx_animation\sample_animation\samples\sample04\main.cpp(110): warning C4244: '=' : conversion from 'LONG' to 'float', possible loss of data
+     1>g:\github\directx_animation\sample_animation\samples\sample04\main.cpp(111): warning C4244: '=' : conversion from 'LONG' to 'float', possible loss of data
+     1>g:\github\directx_animation\sample_animation\samples\sample04\main.cpp(113): warning C4244: '=' : conversion from 'LONG' to 'float', possible loss of data
+     1>g:\github\directx_animation\sample_animation\samples\sample04\main.cpp(114): warning C4244: '=' : conversion from 'LONG' to 'float', possible loss of data
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\DuongNguyen\Desktop\Game-Direct-X-21d3663a296920418e8b26303480d3c38cb4b326\sample_animation\samples\Debug\sample04.exe" /INCREMENTAL /NOLOGO d3d9.lib d3dx9.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\DuongNguyen\Desktop\Game-Direct-X-21d3663a296920418e8b26303480d3c38cb4b326\sample_animation\samples\Debug\sample04.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\DuongNguyen\Desktop\Game-Direct-X-21d3663a296920418e8b26303480d3c38cb4b326\sample_animation\samples\Debug\sample04.lib" /MACHINE:X86 Debug\Animation.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"G:\GitHub\DirectX_Animation\sample_animation\samples\Debug\sample04.exe" /INCREMENTAL /NOLOGO d3d9.lib d3dx9.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"G:\GitHub\DirectX_Animation\sample_animation\samples\Debug\sample04.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"G:\GitHub\DirectX_Animation\sample_animation\samples\Debug\sample04.lib" /MACHINE:X86 Debug\Animation.obj
          Debug\ColoredRect.obj
          Debug\GameObject.obj
          Debug\GTexture.obj
          Debug\main.obj
          Debug\Sprite.obj
          Debug\VideoDriver.obj
-         LINK : C:\Users\DuongNguyen\Desktop\Game-Direct-X-21d3663a296920418e8b26303480d3c38cb4b326\sample_animation\samples\Debug\sample04.exe not found or not built by the last incremental link; performing full link
-         sample04.vcxproj -> C:\Users\DuongNguyen\Desktop\Game-Direct-X-21d3663a296920418e8b26303480d3c38cb4b326\sample_animation\samples\Debug\sample04.exe
-     1>Done Building Project "C:\Users\DuongNguyen\Desktop\Game-Direct-X-21d3663a296920418e8b26303480d3c38cb4b326\sample_animation\samples\sample04\sample04.vcxproj" (Build target(s)).
+         sample04.vcxproj -> G:\GitHub\DirectX_Animation\sample_animation\samples\Debug\sample04.exe
+     1>Done Building Project "G:\GitHub\DirectX_Animation\sample_animation\samples\sample04\sample04.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:10.73
+Time Elapsed 00:00:01.23

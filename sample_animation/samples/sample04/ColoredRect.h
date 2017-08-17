@@ -7,8 +7,9 @@ public:
 	int r, b, g;
 	float width, height;
 
-	ColoredRect(float, float, float, float, int, int, int);
+	ColoredRect(float x, float y, float width, float height, int r, int b, int g);
 
 	void Render(VideoDriver *, GTexture*);
+	RECT BoundingBox();
 	//void Update();
 };

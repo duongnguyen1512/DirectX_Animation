@@ -16,6 +16,6 @@ public:
 	float kitty_vx_last;  // last vx of kitty before stop ( to determine the direction of kitty )
 
 	virtual void Render(VideoDriver *, GTexture*) = 0;
-	//virtual void BoundingBox() = 0;
+	RECT BoundingBox(GTexture*);
 	//virtual void Update() = 0;
 };

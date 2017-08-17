@@ -90,27 +90,39 @@ int GameInit(HINSTANCE hInstance, HWND hWnd)
 			NULL);
 
 	
-	texture = new GTexture(d3ddv, "kitty_left.png", 3, 2, 6);
+	texture = new GTexture(d3ddv, "bat.png");
 
 	//rect_barrier1 = new ColoredRect(200, 200, 50, 80, 0, 255, 255);
 	//rect_barrier2 = new ColoredRect(550, 400, 50, 80, 0, 255, 255);
 
-	rect = new ColoredRect(0, 0, 80, 80, 255, 0, 0);
+	rect = new ColoredRect(300, GROUND_Y - 20, 50, 80, 255, 0, 0);
 	video = new VideoDriver(d3d, d3ddv, back_buffer, surface);
-	sprite = new Sprite(100, 100, texture);
+	sprite = new Sprite(300, GROUND_Y, texture);
 	ani = new Animation(texture, d3ddv, 3, 6);
 
 	return 1;
 }
 
-bool CheckCollision()
+bool IsCollision(RECT rect1, RECT rect2)
 {
-	/*if ((rect->y + rect->height < rect_barrier1->y && rect->x + rect->width < rect_barrier1->x)
-		|| (rect->y + rect->height < rect_barrier1->y && rect->x > rect_barrier1->x + rect_barrier1->width)
-		|| (rect->y > rect_barrier1->y + rect_barrier1->height && rect->x + rect->width < rect_barrier1->x)
-		|| (rect->y > rect_barrier1->y + rect_barrier1->height && rect->x > rect_barrier1->x + rect_barrier1->width)
-		)
+	float width_rect1, width_rect2, height_rect1, height_rect2;
+	//rect1
+	width_rect1 = rect1.right - rect1.left;
+	height_rect1 = rect1.bottom - rect1.top;
+	//rect2
+	width_rect2 = rect2.right - rect2.left;
+	height_rect2 = rect2.bottom - rect2.top;
+
+	/*if ((rect1.left + width_rect1 <= rect2.left || rect1.top + height_rect1 <= rect2.top)
+		&& (rect1.left + width_rect1 <= rect2.left || rect1.top >= rect2.top + height_rect2)
+		&& (rect1.left >= rect2.left + width_rect2 || rect1.top + height_rect1 <= rect2.top)
+		&& (rect1.left >= rect2.left + width_rect2 || rect1.top >= rect2.top + height_rect2))
 		return false;*/
+
+	if (rect1.left + width_rect1 <= rect2.left || rect1.top + height_rect1 <= rect2.top
+		|| rect1.left >= rect2.left + width_rect2 || rect1.top >= rect2.top + height_rect2)
+		return false;
+
 	return true;
 }
 
@@ -121,12 +133,47 @@ void GameRun(HWND hWnd)
 		// Clear back buffer with BLACK
 		d3ddv->ColorFill(back_buffer,NULL,D3DCOLOR_XRGB(0,0,0));
 
-		//rect->Render(video);
+		//rect->Render(video, NULL);
 		//rect_barrier1->Render(video);
 		//rect_barrier2->Render(video);
-		//sprite->Render(video);
+		sprite->Render(video);
 
 		ani->x += ani->vx * DeltaTime;
+		ani->y += ani->vy * DeltaTime;
+
+		//bounding box for animation (kitty)
+		RECT bBox_ani = ani->BoundingBox();
+
+		//boundingbox for Rect barrier
+		RECT bBox_rect = sprite->BoundingBox();
+
+		bool isCollision = IsCollision(bBox_ani, bBox_rect);
+
+		if (isCollision)
+		{
+			ani->x -= ani->vx * DeltaTime;
+			ani->y -= ani->vy * DeltaTime;
+
+			if (ani->vx > 0 && ani->y == GROUND_Y)
+				ani->x = sprite->x - (bBox_ani.right - bBox_ani.left);
+			if (ani->vx < 0 && ani->y == GROUND_Y)
+				ani->x = sprite->x + (bBox_rect.right - bBox_rect.left);
+		}
+
+		// Simulate fall down
+		if (ani->y < GROUND_Y && !isCollision)
+			ani->vy += 0.5f;
+		else
+			if (ani->y < GROUND_Y && isCollision)
+			{
+			ani->vy = 0;
+			ani->y = sprite->y - (bBox_ani.bottom - bBox_ani.top);
+			}
+			else
+			{
+				ani->y = GROUND_Y;
+				ani->vy = 0;
+			}
 
 		if (ani->vx != 0)
 			ani->Next();
@@ -159,6 +206,12 @@ void GameRun(HWND hWnd)
 				ani->vx = 0;
 				ani->Reset();
 			}
+
+		if (KEYDOWN(VK_SPACE))
+		{
+			if (ani->vy == 0)
+				ani->vy -= 3.0f;
+		}
 	}
 
 	d3ddv->Present(NULL,NULL,NULL,NULL);

@@ -7,7 +7,7 @@ GTexture::GTexture(LPDIRECT3DDEVICE9 d3dv, char* _fileName, int cols, int rows, 
 	Count = count;
 	FileName = _fileName;
 	this->d3dv = d3dv;
-	this->Load();
+	this->LoadAnimation();
 }
 
 GTexture::GTexture(LPDIRECT3DDEVICE9 d3dv)
@@ -24,7 +24,7 @@ GTexture::GTexture( const GTexture &ctexture)
 	this->Count=ctexture.Count;
 	this->FrameHeight=ctexture.FrameHeight;
 	this->FrameWidth=ctexture.FrameWidth;
-	this->Load();
+	this->LoadAnimation();
 }
 
 GTexture::~GTexture()
@@ -39,7 +39,7 @@ void GTexture::Draw(int x, int y)
 	//G_SpriteHandler->Draw( Texture, &Size, NULL, &position, 0xFFFFFFFF );
 }
 
-void GTexture::Load()
+void GTexture:: LoadAnimation()
 {
 	D3DXIMAGE_INFO info; 
 	HRESULT result;
@@ -49,8 +49,8 @@ void GTexture::Load()
 	RECT s = {0, 0, info.Width, info.Height};
 	this->Size = s;
 
-	FrameWidth = info.Width / Cols;
-	FrameHeight = info.Height / Rows;
+	FrameWidth = info.Width;
+	FrameHeight = info.Height;
 
 	if (result != D3D_OK)
 	{

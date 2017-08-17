@@ -29,4 +29,6 @@ public:
 
 	void Next();
 	void Reset();
+
+	RECT BoundingBox();//bounding box for object
 };

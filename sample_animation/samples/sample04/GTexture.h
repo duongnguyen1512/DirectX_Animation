@@ -29,7 +29,8 @@ public:
 	void Draw(int x, int y);
 
 protected:
-	void Load();
+	void LoadAnimation();
+	void LoadSprite();
 };
 
 #endif

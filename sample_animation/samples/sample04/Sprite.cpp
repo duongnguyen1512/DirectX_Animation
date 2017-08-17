@@ -21,3 +21,8 @@ void Sprite::Render(VideoDriver *video)
 {
 	Render(video, NULL);
 }
+
+RECT Sprite::BoundingBox()
+{
+	return GameObject::BoundingBox(texture);
+}

@@ -10,6 +10,9 @@ public:
 	Sprite(float x, float y, GTexture *texture);
 	Sprite(LPD3DXSPRITE SpriteHandler, LPWSTR FilePath, int Width, int Height, int Count, int SpritePerRow);
 	Sprite(){}
+
 	void Render(VideoDriver *);
 	void Render(VideoDriver *, GTexture*);
+
+	RECT BoundingBox();//bounding Box for object
 };
